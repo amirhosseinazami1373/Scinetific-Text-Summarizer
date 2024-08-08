@@ -7,7 +7,7 @@ from langchain.chat_models import ChatOpenAI
 def search_papers(keywords):
     search_query = scholarly.search_pubs(" ".join(keywords))
     papers = []
-    for _ in range(100):  # Fetch up to 100 papers and then filter
+    for _ in range(100):  #Fetch up to 100 papers and then filter
         try:
             paper = next(search_query)
             # Check if all keywords are in the title or abstract
@@ -15,13 +15,13 @@ def search_papers(keywords):
             abstract = paper['bib'].get('abstract', '').lower()
             if all(keyword.lower() in title or keyword.lower() in abstract for keyword in keywords):
                 papers.append(paper)
-                if len(papers) >= 10:  # Limit to 10 papers
+                if len(papers) >= 10:  #Limit to 10 papers
                     break
         except StopIteration:
             break
     return papers
 
-# Function to summarize a list of papers using OpenAI's gpt-3.5-turbo model via LangChain
+#Function to summarize a list of papers using OpenAI's gpt-3.5-turbo model via LangChain
 def summarize_papers(papers, temperature=0):
     summaries = []
     chat = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=temperature)
@@ -51,16 +51,16 @@ Abstract: {abstract}
 
     return summaries
 
-# Prompt the user for keywords to search for papers
+#Prompt the user for keywords to search for papers
 keywords_input = input("Enter the keywords to search for papers (separated by commas): ")
 keywords = [keyword.strip() for keyword in keywords_input.split(",")]
 
-# Search for papers using the provided keywords
+#Search for papers using the provided keywords
 papers = search_papers(keywords)
 
-# Summarize the retrieved papers
-summaries = summarize_papers(papers, temperature=0)  # Temperature set to 0 for deterministic results
+#Summarize the retrieved papers
+summaries = summarize_papers(papers, temperature=0)  #Temperature set to 0 for deterministic results
 
-# Print the summaries of the papers
+#Print the summaries of the papers
 for i, summary_info in enumerate(summaries, 1):
     print(f"Summary of paper {i}:\nTitle: {summary_info['title']}\nYear: {summary_info['year']}\nSummary: {summary_info['summary']}\n")
