@@ -1,4 +1,5 @@
-# Scinetific-Text-Summarizer
+# Scinetific-Text-Summarizer             ![image](https://github.com/user-attachments/assets/30168dc8-3dce-4756-9070-31ef0b4a95ac)
+
 
 This is a summarizer that generates short summaries of scientific articles from Google Scholar using the power of the affordable GPT-3.5-turbo.
 
