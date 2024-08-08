@@ -1,6 +1,6 @@
 # Scinetific-Text-Summarizer
 
-This a summarizer to generate short summaries of the scientific articles using the power of the affordable GPT-3.5-turbo.
+This is a summarizer that generates short summaries of scientific articles from Google Scholar using the power of the affordable GPT-3.5-turbo.
 
 # Requirements:
 
@@ -14,3 +14,5 @@ This a summarizer to generate short summaries of the scientific articles using t
 3- To generate the summaries, run the code and enter your desired keywords (use ',' to separate the keywords). 
 
 4- You can further increase the randomness in the summaries using the 'temperature' parameter.
+
+5- The number of summaries for a set of keywords has been limited to 10; you can easily increase the number by changing the code. 
